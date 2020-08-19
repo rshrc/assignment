@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:trell_video_player/picker/picker.dart';
 import 'package:trell_video_player/picker/selection.dart';
 import 'package:trell_video_player/splash_screen.dart';
+import 'package:media_gallery/media_gallery.dart';
 import 'package:trell_video_player/views/video_list_view.dart';
 
-void main() => runApp(MaterialApp(
-      theme: ThemeData(primaryColor: Colors.red),
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    ));
+void main() => runApp(
+      MaterialApp(
+        theme: ThemeData(primaryColor: Colors.red),
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
+    );
 
 class MyApp extends StatefulWidget {
   @override
@@ -17,6 +20,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   MediaPickerSelection selection;
+  List<MediaCollection> collections = [];
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +39,7 @@ class _MyAppState extends State<MyApp> {
           backgroundColor: Colors.red,
           onPressed: () async {
             final result = await MediaPicker.show(context);
+
             if (result != null) {
               setState(() => selection = result);
             }

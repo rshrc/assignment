@@ -18,6 +18,11 @@ dependencies:
   cupertino_icons: ^0.1.2
   chewie:
   shared_preferences:
+  snapping_page_scroll:
+  scroll_snap_list:
+
+
+
 
 dev_dependencies:
   flutter_test:

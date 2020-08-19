@@ -25,9 +25,10 @@ class _VideoPlayerState extends State<VideoPlayer> {
       _videoPlayerController1 = VideoPlayerController.file(file);
       _chewieController = ChewieController(
         videoPlayerController: _videoPlayerController1,
-        aspectRatio: 3 / 2,
+        aspectRatio: (MediaQuery.of(context).size.width)/MediaQuery.of(context).size.height,
         autoPlay: true,
         looping: false,
+        allowFullScreen: false,
       );
       setState(() {
         _loading = false;
@@ -47,16 +48,16 @@ class _VideoPlayerState extends State<VideoPlayer> {
         ? Center(
             child: CircularProgressIndicator(),
           )
-        : Stack(
+        : Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Chewie(
-                  controller: _chewieController,
-                ),
+              Chewie(
+                controller: _chewieController,
               ),
               BookmarkWidget(index: widget.index, stored: false),
             ],
-          );
+          ),
+        );
   }
 }

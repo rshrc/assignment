@@ -30,6 +30,7 @@ class _MediaCollectionsPageState extends State<MediaCollectionsPage> {
       collections = await MediaGallery.listMediaCollections(
         mediaTypes: selection.mediaTypes,
       );
+      print("Line 33: collections");
       setState(() {});
     } catch (e) {
       print('Failed : $e');

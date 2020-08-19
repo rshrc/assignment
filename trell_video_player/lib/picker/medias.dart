@@ -99,7 +99,6 @@ class _MediaGridState extends State<MediaGrid>
       pages.add(
         await widget.collection.getMedias(
           mediaType: widget.mediaType,
-          take: 50,
         ),
       );
       setState(() {});
